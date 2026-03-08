@@ -162,9 +162,9 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative order-first md:order-last"
+          className="relative order-first md:order-last w-full"
         >
-          <motion.div animate={floatingAnimation} className="relative max-w-sm mx-auto md:max-w-none">
+          <motion.div animate={floatingAnimation} className="relative max-w-[280px] xs:max-w-sm mx-auto md:max-w-none">
             <img
               src={heroImage}
               alt="Tech illustration"
@@ -182,7 +182,7 @@ export function Hero() {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute -top-4 -right-4 bg-blue-500 text-white p-3 md:p-4 rounded-lg shadow-lg"
+              className="absolute -top-4 -right-2 md:-right-4 bg-blue-500 text-white p-3 md:p-4 rounded-lg shadow-lg"
             >
               <Code size={24} className="md:w-8 md:h-8" />
             </motion.div>
