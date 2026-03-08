@@ -98,26 +98,27 @@ export function Contact() {
           </p>
 
           {/* Contact Info */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
             {contactInfo.map((info) => {
               const Icon = info.icon;
               const colors = colorMap[info.color];
 
               return (
-                <a
+                <motion.a
                   key={info.label}
                   href={info.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 text-center"
+                  whileHover={{ y: -5 }}
+                  className="group p-5 md:p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center transition-all"
                 >
-                  <div className={`inline-flex p-4 ${colors.bg} rounded-xl mb-3`}>
+                  <div className={`inline-flex p-4 ${colors.bg} rounded-2xl mb-4 group-hover:scale-110 transition-transform`}>
                     <Icon className="text-white" size={24} />
                   </div>
 
-                  <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{info.label}</p>
-                  <p className="text-sm text-gray-900 dark:text-white font-medium break-all">{info.value}</p>
-                </a>
+                  <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">{info.label}</p>
+                  <p className="text-sm md:text-base text-gray-900 dark:text-white font-medium break-all">{info.value}</p>
+                </motion.a>
               );
             })}
           </div>

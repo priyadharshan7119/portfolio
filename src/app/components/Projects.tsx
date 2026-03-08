@@ -62,65 +62,72 @@ export function Projects() {
             A collection of projects demonstrating my skills in web development and problem-solving
           </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-10">
             {projects.map((project, index) => {
               // Alternate animation directions
               const isEven = index % 2 === 0;
               return (
                 <motion.div
                   key={project.title}
-                  initial={{ opacity: 0, x: isEven ? -100 : 100, rotateY: isEven ? -30 : 30 }}
-                  animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
-                  transition={{ duration: 0.8, delay: index * 0.15 }}
-                  className="group relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="group relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full"
                 >
                 {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
+                <div className="relative h-56 sm:h-64 overflow-hidden">
                   <motion.img
                     whileHover={{ scale: 1.1 }}
-                    transition={{ duration: 0.3 }}
+                    transition={{ duration: 0.5 }}
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Hover Overlay with Links */}
-                  <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {/* Links overlay - visible on mobile by default, on hover for desktop */}
+                  <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between md:justify-center md:gap-6 md:absolute md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:bottom-auto md:right-auto opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-all duration-300">
                     <motion.a
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       href={project.github}
-                      className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-xl flex items-center gap-2"
                     >
                       <Github size={20} className="text-gray-900 dark:text-white" />
+                      <span className="md:hidden text-sm font-medium text-gray-900 dark:text-white">Code</span>
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       href={project.demo}
-                      className="p-3 bg-white dark:bg-gray-800 rounded-full shadow-lg"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-3 bg-blue-600/90 backdrop-blur-sm rounded-full shadow-xl flex items-center gap-2"
                     >
-                      <ExternalLink size={20} className="text-gray-900 dark:text-white" />
+                      <ExternalLink size={20} className="text-white" />
+                      <span className="md:hidden text-sm font-medium text-white">Live Demo</span>
                     </motion.a>
                   </div>
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                <div className="p-6 sm:p-8 flex-grow flex flex-col">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-6 line-clamp-3 md:line-clamp-4">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="mt-auto flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full"
+                        className="px-3 py-1.5 text-xs font-semibold bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg border border-blue-100 dark:border-blue-900/30"
                       >
                         {tech}
                       </span>
@@ -128,10 +135,9 @@ export function Projects() {
                   </div>
                 </div>
 
-                {/* Animated Border */}
-                <motion.div
-                  className="absolute inset-0 border-2 border-blue-600 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ pointerEvents: 'none' }}
+                {/* Animated Border - Desktop only */}
+                <div
+                  className="hidden md:block absolute inset-0 border-2 border-blue-600/0 group-hover:border-blue-600/50 rounded-3xl transition-all duration-500 pointer-events-none"
                 />
               </motion.div>
               );

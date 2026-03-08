@@ -180,54 +180,46 @@ export function Achievements() {
             Professional experience and internship work that helped me develop practical software development skills.
           </motion.p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {achievements.map((achievement, index) => {
               const Icon = achievement.icon;
               const colors = colorMap[achievement.color];
               
-              const isTopLeft = index === 0;
-              const isTopRight = index === 1;
-              const isBottomLeft = index === 2;
-              const isBottomRight = index === 3;
-
               return (
                 <motion.div
                   key={achievement.title}
-                  initial={{ 
-                    opacity: 0, 
-                    x: isTopLeft || isBottomLeft ? -100 : 100,
-                    y: isTopLeft || isTopRight ? -50 : 50,
-                    scale: 0.8
-                  }}
-                  animate={isInView ? { opacity: 1, x: 0, y: 0, scale: 1 } : {}}
-                  transition={{ duration: 0.7, delay: index * 0.15, type: "spring", stiffness: 100 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   whileHover={{ 
                     y: -10, 
                     boxShadow: `0 20px 40px ${colors.glow}`,
                   }}
-                  className="relative p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden group"
+                  className="relative p-6 md:p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden group h-full flex flex-col"
                 >
                   <div className={`absolute top-0 right-0 w-32 h-32 ${colors.bg} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity duration-300`} />
 
                   <motion.div
                     whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.6 }}
-                    className={`inline-flex p-4 ${colors.bg} rounded-2xl mb-4`}
+                    className={`inline-flex p-3 md:p-4 ${colors.bg} rounded-2xl mb-6 w-fit`}
                   >
-                    <Icon className="text-white" size={32} />
+                    <Icon className="text-white" size={28} />
                   </motion.div>
 
-                  <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
                     {achievement.title}
                   </h3>
 
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed flex-grow">
                     {achievement.description}
                   </p>
 
                   <motion.div
                     initial={{ width: 0 }}
-                    animate={isInView ? { width: '100%' } : {}}
+                    whileInView={{ width: '100%' }}
+                    viewport={{ once: true }}
                     transition={{ duration: 0.8, delay: index * 0.1 + 0.3 }}
                     className={`absolute bottom-0 left-0 h-1 ${colors.bg}`}
                   />

@@ -90,18 +90,16 @@ export function Skills() {
             A comprehensive overview of my technical expertise and proficiency levels
           </motion.p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {skillCategories.map((category, categoryIndex) => {
               const Icon = category.icon;
               const colors = colorMap[category.color];
               
-              // Different animation directions for variety
               const animationVariants = [
-                { initial: { opacity: 0, x: -100 }, animate: { opacity: 1, x: 0 } },
-                { initial: { opacity: 0, y: 100 }, animate: { opacity: 1, y: 0 } },
-                { initial: { opacity: 0, x: 100 }, animate: { opacity: 1, x: 0 } },
-                { initial: { opacity: 0, scale: 0.5 }, animate: { opacity: 1, scale: 1 } },
-                { initial: { opacity: 0, rotate: -180 }, animate: { opacity: 1, rotate: 0 } },
+                { initial: { opacity: 0, x: -50 }, animate: { opacity: 1, x: 0 } },
+                { initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 } },
+                { initial: { opacity: 0, x: 50 }, animate: { opacity: 1, x: 0 } },
+                { initial: { opacity: 0, scale: 0.9 }, animate: { opacity: 1, scale: 1 } },
               ];
               
               const variant = animationVariants[categoryIndex % animationVariants.length];
@@ -110,37 +108,39 @@ export function Skills() {
                 <motion.div
                   key={category.title}
                   initial={variant.initial}
-                  animate={isInView ? variant.animate : {}}
-                  transition={{ duration: 0.7, delay: categoryIndex * 0.15 }}
-                  whileHover={{ scale: 1.05, boxShadow: `0 20px 40px ${colors.glow}` }}
-                  className="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700"
+                  whileInView={variant.animate}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                  whileHover={{ scale: 1.02, boxShadow: `0 20px 40px ${colors.glow}` }}
+                  className="p-6 md:p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 h-full"
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className={`p-3 ${colors.bg} rounded-lg`}>
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className={`p-3.5 ${colors.bg} rounded-2xl shadow-lg`}>
                       <Icon className="text-white" size={24} />
                     </div>
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
                       {category.title}
                     </h3>
                   </div>
 
-                  <div className="space-y-4">
+                  <div className="space-y-5">
                     {category.skills.map((skill, skillIndex) => (
                       <div key={skill.name}>
                         <div className="flex justify-between mb-2">
-                          <span className="text-sm text-gray-700 dark:text-gray-300">
+                          <span className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
                             {skill.name}
                           </span>
-                          <span className="text-sm font-semibold text-gray-900 dark:text-white">
+                          <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
                             {skill.level}%
                           </span>
                         </div>
-                        <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                        <div className="h-2.5 bg-gray-100 dark:bg-gray-700/50 rounded-full overflow-hidden border border-gray-200/50 dark:border-gray-600/30">
                           <motion.div
                             initial={{ width: 0 }}
-                            animate={isInView ? { width: `${skill.level}%` } : {}}
+                            whileInView={{ width: `${skill.level}%` }}
+                            viewport={{ once: true }}
                             transition={{
-                              duration: 1,
+                              duration: 1.2,
                               delay: categoryIndex * 0.1 + skillIndex * 0.1,
                               ease: 'easeOut',
                             }}

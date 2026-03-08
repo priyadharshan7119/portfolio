@@ -7,13 +7,13 @@ export function Hero() {
   const [typedText, setTypedText] = useState('');
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
-  
+
   const roles = ['CSE Graduate', 'Full Stack Developer', 'Software Developer'];
-  
+
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
     const typingSpeed = isDeleting ? 50 : 100;
-    
+
     const timer = setTimeout(() => {
       if (!isDeleting) {
         // Typing
@@ -33,7 +33,7 @@ export function Hero() {
         }
       }
     }, typingSpeed);
-    
+
     return () => clearTimeout(timer);
   }, [typedText, isDeleting, currentRoleIndex]);
 
@@ -49,7 +49,7 @@ export function Hero() {
     transition: {
       duration: 3,
       repeat: Infinity,
-      ease: 'easeInOut',
+      ease: 'easeInOut' as const,
     },
   };
 
@@ -67,12 +67,13 @@ export function Hero() {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-center md:text-left"
         >
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-5xl md:text-6xl mb-4 text-gray-900 dark:text-white"
+            className="text-4xl sm:text-5xl md:text-6xl mb-4 text-gray-900 dark:text-white font-bold leading-tight"
           >
             Hi, I'm <span className="text-blue-600 dark:text-blue-400">Priyadharshan D</span>
           </motion.h1>
@@ -93,7 +94,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-lg text-gray-600 dark:text-gray-400 mb-6"
+            className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto md:mx-0"
           >
             I build responsive web applications and love solving real-world problems using code. Currently seeking an entry-level <span className="font-semibold text-blue-600 dark:text-blue-400">Software Developer / Full Stack Developer</span> role.
           </motion.p>
@@ -103,23 +104,23 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8 }}
-            className="flex flex-wrap gap-4 mb-6"
+            className="flex flex-wrap justify-center md:justify-start gap-4 mb-8"
           >
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               href="/resume.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-lg hover:shadow-xl"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors shadow-lg hover:shadow-xl text-sm md:text-base"
             >
               <Download size={20} />
               Download Resume
             </motion.a>
-            
+
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToProjects}
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:text-white rounded-lg transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:text-white rounded-lg transition-colors text-sm md:text-base"
             >
               <Code size={20} />
               View Projects
@@ -131,7 +132,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            className="flex gap-4"
+            className="flex justify-center md:justify-start gap-4"
           >
             <motion.a
               whileHover={{ scale: 1.2, rotate: 5 }}
@@ -143,7 +144,7 @@ export function Hero() {
             >
               <Github size={24} />
             </motion.a>
-            
+
             <motion.a
               whileHover={{ scale: 1.2, rotate: -5 }}
               whileTap={{ scale: 0.9 }}
@@ -156,21 +157,21 @@ export function Hero() {
             </motion.a>
           </motion.div>
         </motion.div>
-        
+
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="relative hidden md:block"
+          className="relative order-first md:order-last"
         >
-          <motion.div animate={floatingAnimation} className="relative">
+          <motion.div animate={floatingAnimation} className="relative max-w-sm mx-auto md:max-w-none">
             <img
               src={heroImage}
               alt="Tech illustration"
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow-2xl w-full"
             />
-            
-            {/* Floating Elements */}
+
+            {/* Floating Elements - Hidden on small mobile */}
             <motion.div
               animate={{
                 y: [0, -15, 0],
@@ -181,9 +182,9 @@ export function Hero() {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}
-              className="absolute -top-4 -right-4 bg-blue-500 text-white p-4 rounded-lg shadow-lg"
+              className="absolute -top-4 -right-4 bg-blue-500 text-white p-3 md:p-4 rounded-lg shadow-lg"
             >
-              <Code size={32} />
+              <Code size={24} className="md:w-8 md:h-8" />
             </motion.div>
           </motion.div>
         </motion.div>
