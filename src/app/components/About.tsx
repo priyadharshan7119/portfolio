@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
-import profileImage from '../../assets/image2.jpg';
+import profileImage from '../../assets/Photo.jpeg';
 
 
 export function About() {
@@ -57,7 +57,7 @@ export function About() {
               >
                 I am a <span className="font-semibold text-blue-600 dark:text-blue-400 transition-colors duration-500">BE CSE graduate</span> with strong programming, web development, flutter development and problem-solving skills.
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0, x: 100 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -66,7 +66,7 @@ export function About() {
               >
                 I build scalable web and mobile applications using modern technologies like MongoDB, Express.js, React.js, Node.js, and Flutter. I enjoy solving real-world problems through clean, efficient code and innovative solutions.
               </motion.p>
-              
+
               <motion.p
                 initial={{ opacity: 0, x: 100 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
@@ -87,7 +87,7 @@ export function About() {
                   <p className="text-2xl md:text-3xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-500">100+</p>
                   <p className="text-xs md:text-sm text-slate-600 dark:text-gray-400 transition-colors duration-500 font-medium">Problems Solved</p>
                 </motion.div>
-                
+
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={isInView ? { opacity: 1, scale: 1 } : {}}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Github, Linkedin, Download, Code } from 'lucide-react';
-import heroImage from '../../assets/Photo.jpeg';
+import heroImage from '../../assets/image2.jpg';
 
 export function Hero() {
   const [typedText, setTypedText] = useState('');
