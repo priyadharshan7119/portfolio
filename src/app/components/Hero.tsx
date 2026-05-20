@@ -8,7 +8,7 @@ export function Hero() {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const roles = ['CSE Graduate', 'Full Stack Developer', 'Software Developer'];
+  const roles = ['Flutter Developer', 'Full Stack Developer', 'Software Developer'];
 
   useEffect(() => {
     const currentRole = roles[currentRoleIndex];
@@ -84,10 +84,10 @@ export function Hero() {
             transition={{ delay: 0.4 }}
             className="h-12 mb-4"
           >
-            <p className="text-xl md:text-2xl text-slate-700 dark:text-gray-300 transition-colors duration-500">
+            <h2 className="text-xl md:text-2xl text-slate-700 dark:text-gray-300 transition-colors duration-500">
               {typedText}
               <span className="animate-pulse">|</span>
-            </p>
+            </h2>
           </motion.div>
 
           <motion.p
