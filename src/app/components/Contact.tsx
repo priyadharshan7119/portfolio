@@ -79,7 +79,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <section id="contact" className="py-20 bg-slate-50 dark:bg-gray-900 transition-all duration-500 ease-in-out">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
@@ -89,11 +89,11 @@ export function Contact() {
           transition={{ duration: 0.6 }}
         >
 
-          <h2 className="text-4xl md:text-5xl text-center mb-4 text-gray-900 dark:text-white">
+          <h2 className="text-4xl md:text-5xl text-center mb-4 text-slate-900 dark:text-white font-bold transition-colors duration-500">
             Get In <span className="text-blue-600 dark:text-blue-400">Touch</span>
           </h2>
 
-          <p className="text-center text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-slate-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto transition-colors duration-500">
             Interested in working together or have an opportunity for me? Feel free to reach out.
           </p>
 
@@ -110,14 +110,14 @@ export function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -5 }}
-                  className="group p-5 md:p-6 bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 flex flex-col items-center text-center transition-all"
+                  className="group p-5 md:p-6 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl shadow-md hover:shadow-xl border border-slate-200/60 dark:border-gray-700/50 flex flex-col items-center text-center transition-all duration-500 ease-in-out"
                 >
-                  <div className={`inline-flex p-4 ${colors.bg} rounded-2xl mb-4 group-hover:scale-110 transition-transform`}>
+                  <div className={`inline-flex p-4 ${colors.bg} rounded-2xl mb-4 group-hover:scale-110 transition-transform shadow-md`}>
                     <Icon className="text-white" size={24} />
                   </div>
 
-                  <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-1">{info.label}</p>
-                  <p className="text-sm md:text-base text-gray-900 dark:text-white font-medium break-all">{info.value}</p>
+                  <p className="text-xs font-semibold text-slate-500 dark:text-gray-400 uppercase tracking-wider mb-1 transition-colors duration-500">{info.label}</p>
+                  <p className="text-sm md:text-base text-slate-900 dark:text-white font-medium break-all transition-colors duration-500">{info.value}</p>
                 </motion.a>
               );
             })}
@@ -125,16 +125,16 @@ export function Contact() {
 
           {/* Contact Form */}
           <div className="max-w-2xl mx-auto">
-            <div className="p-8 md:p-10 bg-white dark:bg-gray-800 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 relative overflow-hidden">
+            <div className="p-8 md:p-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md rounded-3xl shadow-xl border border-slate-200/60 dark:border-gray-700/50 relative overflow-hidden transition-all duration-500 ease-in-out">
 
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500" />
 
               <div className="relative">
-                <h3 className="text-2xl md:text-3xl font-semibold mb-2 text-gray-900 dark:text-white text-center">
+                <h3 className="text-2xl md:text-3xl font-semibold mb-2 text-slate-900 dark:text-white text-center transition-colors duration-500">
                   Send a Message
                 </h3>
 
-                <p className="text-center text-gray-600 dark:text-gray-400 mb-8">
+                <p className="text-center text-slate-600 dark:text-gray-400 mb-8 transition-colors duration-500">
                   Let's start a conversation
                 </p>
 
@@ -143,7 +143,7 @@ export function Contact() {
                   <div className="grid md:grid-cols-2 gap-6">
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2 transition-colors duration-500">
                         Your Name
                       </label>
 
@@ -154,12 +154,12 @@ export function Contact() {
                         onChange={handleChange}
                         placeholder="John Doe"
                         required
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                        className="w-full px-4 py-3 bg-slate-50/50 dark:bg-gray-900/40 border border-slate-200 dark:border-gray-700/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white transition-all duration-500"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                      <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2 transition-colors duration-500">
                         Your Email
                       </label>
 
@@ -170,7 +170,7 @@ export function Contact() {
                         onChange={handleChange}
                         placeholder="john@example.com"
                         required
-                        className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                        className="w-full px-4 py-3 bg-slate-50/50 dark:bg-gray-900/40 border border-slate-200 dark:border-gray-700/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white transition-all duration-500"
                       />
                     </div>
 
@@ -178,7 +178,7 @@ export function Contact() {
 
                   <div>
 
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                    <label className="block text-sm font-medium text-slate-700 dark:text-gray-300 mb-2 transition-colors duration-500">
                       Your Message
                     </label>
 
@@ -189,14 +189,14 @@ export function Contact() {
                       placeholder="Tell me about your project or opportunity..."
                       rows={6}
                       required
-                      className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white resize-none"
+                      className="w-full px-4 py-3 bg-slate-50/50 dark:bg-gray-900/40 border border-slate-200 dark:border-gray-700/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-900 dark:text-white resize-none transition-all duration-500"
                     />
 
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg font-medium rounded-xl transition-all shadow-lg hover:shadow-2xl"
+                    className="w-full inline-flex items-center justify-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white text-lg font-medium rounded-xl transition-all shadow-lg hover:shadow-2xl cursor-pointer"
                   >
                     <Send size={22} />
                     Send Message

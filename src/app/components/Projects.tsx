@@ -42,14 +42,14 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <section id="projects" className="py-20 bg-white dark:bg-gray-800/30 transition-all duration-500 ease-in-out">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref}>
           <motion.h2
             initial={{ opacity: 0, y: -50 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="text-4xl md:text-5xl text-center mb-4 text-gray-900 dark:text-white"
+            className="text-4xl md:text-5xl text-center mb-4 text-slate-900 dark:text-white font-bold transition-colors duration-500"
           >
             Featured <span className="text-blue-600 dark:text-blue-400">Projects</span>
           </motion.h2>
@@ -57,7 +57,7 @@ export function Projects() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-center text-gray-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto"
+            className="text-center text-slate-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto transition-colors duration-500"
           >
             A collection of projects demonstrating my skills in web development and problem-solving
           </motion.p>
@@ -73,7 +73,7 @@ export function Projects() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="group relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 flex flex-col h-full"
+                  className="group relative bg-slate-50/80 dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-slate-200/80 dark:border-gray-700 flex flex-col h-full transition-all duration-500 ease-in-out"
                 >
                 {/* Project Image */}
                 <div className="relative h-56 sm:h-64 overflow-hidden">
@@ -94,10 +94,10 @@ export function Projects() {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full shadow-xl flex items-center gap-2"
+                      className="p-3 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm rounded-full shadow-xl flex items-center gap-2 transition-all duration-500"
                     >
-                      <Github size={20} className="text-gray-900 dark:text-white" />
-                      <span className="md:hidden text-sm font-medium text-gray-900 dark:text-white">Code</span>
+                      <Github size={20} className="text-slate-900 dark:text-white transition-colors duration-500" />
+                      <span className="md:hidden text-sm font-medium text-slate-900 dark:text-white transition-colors duration-500">Code</span>
                     </motion.a>
                     <motion.a
                       whileHover={{ scale: 1.1 }}
@@ -105,7 +105,7 @@ export function Projects() {
                       href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-blue-600/90 backdrop-blur-sm rounded-full shadow-xl flex items-center gap-2"
+                      className="p-3 bg-blue-600/90 backdrop-blur-sm rounded-full shadow-xl flex items-center gap-2 transition-all duration-500"
                     >
                       <ExternalLink size={20} className="text-white" />
                       <span className="md:hidden text-sm font-medium text-white">Live Demo</span>
@@ -115,10 +115,10 @@ export function Projects() {
 
                 {/* Project Content */}
                 <div className="p-6 sm:p-8 flex-grow flex flex-col">
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-slate-900 dark:text-white transition-colors duration-500">
                     {project.title}
                   </h3>
-                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 mb-6 line-clamp-3 md:line-clamp-4">
+                  <p className="text-sm md:text-base text-slate-600 dark:text-gray-400 mb-6 line-clamp-3 md:line-clamp-4 transition-colors duration-500">
                     {project.description}
                   </p>
 
@@ -127,7 +127,7 @@ export function Projects() {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="px-3 py-1.5 text-xs font-semibold bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg border border-blue-100 dark:border-blue-900/30"
+                        className="px-3 py-1.5 text-xs font-semibold bg-blue-50/80 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 rounded-lg border border-blue-100/80 dark:border-blue-900/30 transition-all duration-500"
                       >
                         {tech}
                       </span>

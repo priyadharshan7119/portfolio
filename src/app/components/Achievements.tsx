@@ -152,21 +152,21 @@ export function Achievements() {
   ];
 
   const colorMap: Record<string, { bg: string; text: string; border: string; glow: string }> = {
-    blue: { bg: 'bg-blue-500', text: 'text-blue-600', border: 'border-blue-200', glow: 'shadow-blue-500/20' },
-    orange: { bg: 'bg-orange-500', text: 'text-orange-600', border: 'border-orange-200', glow: 'shadow-orange-500/20' },
-    purple: { bg: 'bg-purple-500', text: 'text-purple-600', border: 'border-purple-200', glow: 'shadow-purple-500/20' },
-    green: { bg: 'bg-orange-500', text: 'text-orange-600', border: 'border-orange-200', glow: 'shadow-orange-500/20' },
+    blue: { bg: 'bg-blue-500', text: 'text-blue-600', border: 'border-blue-200', glow: 'rgba(59, 130, 246, 0.15)' },
+    orange: { bg: 'bg-orange-500', text: 'text-orange-600', border: 'border-orange-200', glow: 'rgba(249, 115, 22, 0.15)' },
+    purple: { bg: 'bg-purple-500', text: 'text-purple-600', border: 'border-purple-200', glow: 'rgba(168, 85, 247, 0.15)' },
+    green: { bg: 'bg-green-500', text: 'text-green-600', border: 'border-green-200', glow: 'rgba(34, 197, 94, 0.15)' },
   };
 
   return (
-    <section id="experience" className="py-20 bg-gray-50 dark:bg-gray-800/50">
+    <section id="experience" className="py-20 bg-white dark:bg-gray-800/30 transition-all duration-500 ease-in-out">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref}>
           <motion.h2
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.7, type: "spring" }}
-            className="text-4xl md:text-5xl text-center mb-4 text-gray-900 dark:text-white"
+            className="text-4xl md:text-5xl text-center mb-4 text-slate-900 dark:text-white font-bold transition-colors duration-500"
           >
             Work <span className="text-blue-600 dark:text-blue-400">Experience</span>
           </motion.h2>
@@ -175,7 +175,7 @@ export function Achievements() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-gray-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto"
+            className="text-center text-slate-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto transition-colors duration-500"
           >
             Professional experience and internship work that helped me develop practical software development skills.
           </motion.p>
@@ -196,7 +196,7 @@ export function Achievements() {
                     y: -10, 
                     boxShadow: `0 20px 40px ${colors.glow}`,
                   }}
-                  className="relative p-6 md:p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden group h-full flex flex-col"
+                  className="relative p-6 md:p-8 bg-slate-50/80 dark:bg-gray-800 rounded-3xl shadow-lg border border-slate-200/80 dark:border-gray-700 overflow-hidden group h-full flex flex-col transition-all duration-500 ease-in-out"
                 >
                   <div className={`absolute top-0 right-0 w-32 h-32 ${colors.bg} opacity-5 rounded-full blur-3xl group-hover:opacity-10 transition-opacity duration-300`} />
 
@@ -208,11 +208,11 @@ export function Achievements() {
                     <Icon className="text-white" size={28} />
                   </motion.div>
 
-                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+                  <h3 className="text-xl md:text-2xl font-bold mb-3 text-slate-900 dark:text-white transition-colors duration-500">
                     {achievement.title}
                   </h3>
 
-                  <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 leading-relaxed flex-grow">
+                  <p className="text-sm md:text-base text-slate-600 dark:text-gray-400 leading-relaxed flex-grow transition-colors duration-500">
                     {achievement.description}
                   </p>
 

@@ -62,22 +62,22 @@ export function Skills() {
   ];
 
   const colorMap: Record<string, { bg: string; text: string; glow: string }> = {
-    blue: { bg: 'bg-blue-500', text: 'text-blue-600', glow: 'shadow-blue-500/50' },
-    purple: { bg: 'bg-purple-500', text: 'text-purple-600', glow: 'shadow-purple-500/50' },
-    green: { bg: 'bg-green-500', text: 'text-green-600', glow: 'shadow-green-500/50' },
-    orange: { bg: 'bg-orange-500', text: 'text-orange-600', glow: 'shadow-orange-500/50' },
-    red: { bg: 'bg-red-500', text: 'text-red-600', glow: 'shadow-red-500/50' },
+    blue: { bg: 'bg-blue-500', text: 'text-blue-600', glow: 'rgba(59, 130, 246, 0.15)' },
+    purple: { bg: 'bg-purple-500', text: 'text-purple-600', glow: 'rgba(168, 85, 247, 0.15)' },
+    green: { bg: 'bg-green-500', text: 'text-green-600', glow: 'rgba(34, 197, 94, 0.15)' },
+    orange: { bg: 'bg-orange-500', text: 'text-orange-600', glow: 'rgba(249, 115, 22, 0.15)' },
+    red: { bg: 'bg-red-500', text: 'text-red-600', glow: 'rgba(239, 68, 68, 0.15)' },
   };
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 transition-all duration-500 ease-in-out">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={ref}>
           <motion.h2
             initial={{ opacity: 0, scale: 0.5 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl text-center mb-4 text-gray-900 dark:text-white"
+            className="text-4xl md:text-5xl text-center mb-4 text-slate-900 dark:text-white font-bold transition-colors duration-500"
           >
             My <span className="text-blue-600 dark:text-blue-400">Skills</span>
           </motion.h2>
@@ -85,12 +85,12 @@ export function Skills() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-center text-gray-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto"
+            className="text-center text-slate-600 dark:text-gray-400 mb-16 max-w-2xl mx-auto transition-colors duration-500"
           >
             A comprehensive overview of my technical expertise and proficiency levels
           </motion.p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-6 lg:gap-8">
             {skillCategories.map((category, categoryIndex) => {
               const Icon = category.icon;
               const colors = colorMap[category.color];
@@ -104,6 +104,12 @@ export function Skills() {
               
               const variant = animationVariants[categoryIndex % animationVariants.length];
 
+              const getGridClass = (index: number) => {
+                if (index === 3) return "sm:col-span-1 lg:col-start-2 lg:col-span-2";
+                if (index === 4) return "sm:col-span-2 sm:place-self-center sm:w-[calc(50%-0.75rem)] lg:w-full lg:col-start-4 lg:col-span-2";
+                return "sm:col-span-1 lg:col-span-2";
+              };
+
               return (
                 <motion.div
                   key={category.title}
@@ -112,13 +118,13 @@ export function Skills() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
                   whileHover={{ scale: 1.02, boxShadow: `0 20px 40px ${colors.glow}` }}
-                  className="p-6 md:p-8 bg-white dark:bg-gray-800 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 h-full"
+                  className={`p-6 md:p-8 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md rounded-3xl shadow-md hover:shadow-xl border border-slate-200/60 dark:border-gray-700/50 flex flex-col h-full transition-all duration-500 ease-in-out ${getGridClass(categoryIndex)}`}
                 >
                   <div className="flex items-center gap-4 mb-8">
                     <div className={`p-3.5 ${colors.bg} rounded-2xl shadow-lg`}>
                       <Icon className="text-white" size={24} />
                     </div>
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white transition-colors duration-500">
                       {category.title}
                     </h3>
                   </div>
@@ -127,14 +133,14 @@ export function Skills() {
                     {category.skills.map((skill, skillIndex) => (
                       <div key={skill.name}>
                         <div className="flex justify-between mb-2">
-                          <span className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
+                          <span className="text-sm md:text-base font-medium text-slate-700 dark:text-gray-300 transition-colors duration-500">
                             {skill.name}
                           </span>
-                          <span className="text-sm font-bold text-blue-600 dark:text-blue-400">
+                          <span className="text-sm font-bold text-blue-600 dark:text-blue-400 transition-colors duration-500">
                             {skill.level}%
                           </span>
                         </div>
-                        <div className="h-2.5 bg-gray-100 dark:bg-gray-700/50 rounded-full overflow-hidden border border-gray-200/50 dark:border-gray-600/30">
+                        <div className="h-2.5 bg-slate-100 dark:bg-gray-700/50 rounded-full overflow-hidden border border-slate-200/40 dark:border-gray-600/30 transition-all duration-500">
                           <motion.div
                             initial={{ width: 0 }}
                             whileInView={{ width: `${skill.level}%` }}

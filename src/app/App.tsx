@@ -34,7 +34,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-gray-900 transition-all duration-500 ease-in-out overflow-x-hidden">
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />

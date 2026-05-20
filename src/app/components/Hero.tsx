@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Github, Linkedin, Download, Code } from 'lucide-react';
-import heroImage from '../../assets/image2.jpg';
+import heroImage from '../../assets/Photo.jpeg';
 
 export function Hero() {
   const [typedText, setTypedText] = useState('');
@@ -54,11 +54,11 @@ export function Hero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 transition-all duration-500 ease-in-out">
       {/* Animated Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 dark:bg-blue-600/10 rounded-full blur-3xl animate-pulse transition-all duration-500" />
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-3xl animate-pulse transition-all duration-500" style={{ animationDelay: '1s' }} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
@@ -73,7 +73,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl mb-4 text-gray-900 dark:text-white font-bold leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl mb-4 text-slate-900 dark:text-white font-bold leading-tight transition-colors duration-500"
           >
             Hi, I'm <span className="text-blue-600 dark:text-blue-400">Priyadharshan D</span>
           </motion.h1>
@@ -84,7 +84,7 @@ export function Hero() {
             transition={{ delay: 0.4 }}
             className="h-12 mb-4"
           >
-            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300">
+            <p className="text-xl md:text-2xl text-slate-700 dark:text-gray-300 transition-colors duration-500">
               {typedText}
               <span className="animate-pulse">|</span>
             </p>
@@ -94,9 +94,9 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="text-base md:text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-xl mx-auto md:mx-0"
+            className="text-base md:text-lg text-slate-600 dark:text-gray-400 mb-8 max-w-xl mx-auto md:mx-0 transition-colors duration-500"
           >
-            I build responsive web applications and love solving real-world problems using code. Currently seeking an entry-level <span className="font-semibold text-blue-600 dark:text-blue-400">Software Developer / Full Stack Developer</span> role.
+            I build responsive web applications and love solving real-world problems using code. Currently seeking an entry-level <span className="font-semibold text-blue-600 dark:text-blue-400 transition-colors duration-500">Software Developer / Full Stack Developer</span> role.
           </motion.p>
 
           {/* Buttons */}
@@ -120,7 +120,7 @@ export function Hero() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToProjects}
-              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:text-white rounded-lg transition-colors text-sm md:text-base"
+              className="inline-flex items-center gap-2 px-6 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:text-white rounded-lg transition-all duration-500 ease-in-out text-sm md:text-base"
             >
               <Code size={20} />
               View Projects
@@ -140,7 +140,7 @@ export function Hero() {
               href="https://github.com/priyadharshan7119"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-gray-200 dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="p-3 bg-slate-200/80 dark:bg-gray-800 rounded-full text-slate-700 dark:text-gray-200 hover:bg-slate-300/80 dark:hover:bg-gray-700 transition-all duration-500 ease-in-out border border-slate-300/30 dark:border-gray-700/50 shadow-sm"
             >
               <Github size={24} />
             </motion.a>
@@ -151,7 +151,7 @@ export function Hero() {
               href="https://linkedin.com/in/priyadharshan-d"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-gray-200 dark:bg-gray-700 rounded-full text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="p-3 bg-slate-200/80 dark:bg-gray-800 rounded-full text-slate-700 dark:text-gray-200 hover:bg-slate-300/80 dark:hover:bg-gray-700 transition-all duration-500 ease-in-out border border-slate-300/30 dark:border-gray-700/50 shadow-sm"
             >
               <Linkedin size={24} />
             </motion.a>
