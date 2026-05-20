@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
-import profileImage from '../../assets/Photo.jpeg';
+import profileImage from '../../assets/image2.jpg';
 
 
 export function About() {
